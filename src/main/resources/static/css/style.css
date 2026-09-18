@@ -11,6 +11,14 @@ body{
     color: #1e293b;
 }
 
+.cabecalho {
+    background-color: #172554;
+    color: white;
+    padding: 24px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
 .aluno{
     font-size: 16px;
     font-weight: bold;
@@ -19,6 +27,7 @@ body{
     letter-spacing: 1px;
     text-transform: uppercase;
 }
+
 
 .cabecalho h1{
     margin-bottom: 8px;
