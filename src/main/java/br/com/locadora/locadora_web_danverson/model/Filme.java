@@ -2,16 +2,19 @@ package br.com.locadora.locadora_web_danverson.model;
 /*
 Representa um filme cadastrado na locadora */
 public class Filme {
+    // Atributos:
     private  int codigo;
     private String nome;
     private String genero;
     private boolean alugado;
 
     public Filme(){
+        // Construtor vazio
         this.alugado = false;
     }
 
     public Filme(int codigo, String nome, String genero){
+        // Recebe os dados do filme, this -> referencia o atributo do próprio objeto
         this.codigo = codigo;
         this.nome = nome;
         this.genero = genero;
@@ -31,11 +34,11 @@ public class Filme {
     /*Permite ler e alterar o nome*/
     public String getNome() {
         return nome;
-    }
+    }// get = consultar os valores
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
+    } // set = alterar os valores
 
     public String getGenero() {
         return genero;
@@ -52,15 +55,15 @@ public class Filme {
     /*alterar o estado de alugado do filme*/
     public void alugar(){
         if(alugado){
-            throw new IllegalAccessException("Filme já alugado!");
+            throw new IllegalArgumentException("Filme já alugado.");
         }alugado = true;
     }
     public void devolver(){
         alugado = false;
     }
-    @Override
-    public String toString(){
-        String status = alugado ? "Alugado" : "Disponivel";
+    @Override // indica que um metodo esta sendo sobrescrito, nesse caso o metodo toString
+    public String toString(){ //Define como o objeto sera mostrado em texto
+        String status = alugado ? "Alugado" : "Disponivel"; //Operador ternario = if/else resumido
         return "Código: " + codigo
                 + "| Nome: " +  nome
                 + "| Gênero: " + genero
