@@ -11,13 +11,13 @@ Contém as regras do negócio da locadora
  */
 
 @Service //Indica que a classe é um serviço do spring
-public class LocadoraService { // concentra as regras de negócio da locadora
+public class LocadoraService { // concentra as regras de negócio da locadora, Cria uma lista vazia, os dados ficam na memória enquanto o sistema estiver executando
     private final List<Filme> filmes; // final List -> declara a lista que guarda os filmes na memória
     private int proximoCodigoFilme; // guarda o proximo codigo automaticamente
 
 
-    public LocadoraService() {
-        filmes = new ArrayList<>(); // Cria uma lista vazia, os dados ficam na memória enquanto o sistema estiver executando
+    public LocadoraService() { //Cria a lista de filmes começa em 1
+        filmes = new ArrayList<>();
         proximoCodigoFilme = 1;
     }
 
