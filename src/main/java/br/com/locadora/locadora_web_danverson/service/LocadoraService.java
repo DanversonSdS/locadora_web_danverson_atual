@@ -10,14 +10,14 @@ import java.util.List;
 Contém as regras do negócio da locadora
  */
 
-@Service //Faz o string criar e gerenciar um unico objeto
-public class LocadoraService {
-    private final List<Filme> filmes; // final List -> declara a lista que guarda os filmes na memoria
+@Service //Indica que a classe é um serviço do spring
+public class LocadoraService { // concentra as regras de negócio da locadora
+    private final List<Filme> filmes; // final List -> declara a lista que guarda os filmes na memória
     private int proximoCodigoFilme; // guarda o proximo codigo automaticamente
 
 
     public LocadoraService() {
-        filmes = new ArrayList<>();
+        filmes = new ArrayList<>(); // Cria uma lista vazia, os dados ficam na memória enquanto o sistema estiver executando
         proximoCodigoFilme = 1;
     }
 
@@ -28,7 +28,7 @@ public class LocadoraService {
     }
 
     public List<Filme> listarFilmes() {
-        return new ArrayList<>(filmes); // cria uma copia da lista para proteger a lista interna
+        return new ArrayList<>(filmes); // cria uma cópia da lista para proteger a lista interna
     }
 
     public Filme buscarFilmePorCodigo(int codigo) {
