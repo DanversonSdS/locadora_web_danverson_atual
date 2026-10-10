@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org"> <!--ativa os atributos do thymeleaf no arquivo-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar filme</title>
+    <link rel="stylesheet" th:ref="@{/css/style.css}">
+</head>
+<body>
+<header class="cabecalho"></header>
+<p class="aluno">Danverson</p>
+<h1>Locadora Danverson</h1>
+<p>Cadastro de Filmes</p>
+<main class="conteudo">
+    <section class="painel-formulario">
+        <h2>Cadastrar filme</h2>
+        <p class="mensagem-erro"
+           th:if="${mensagemErro}"
+           th:text="${mensagemErro}"></p>
+        <form th:action="@{/filmes/salvar}"
+        th:object="${filmes}"
+        method="post">
+        <div class="campo">
+            <label for="nome">Nome</label>
+                <input id="nome" type="text" th:field="*{nome}" required>
+            </div>
+            <div class="campo">
+                <label for="genero">Gênero</label>
+                <input id="genero" type="text" th:field="*{genero}" required>
+            </div>
+            <div class="acoes">
+                <button class="botao-principal" type="submit">Salvar filme</button>
+                <a class="botao-secundario" th:haref="@{/}">Voltar</a>
+            </div>
+            </form>
+    </section>
+</main>
+<footer class="rodape">
+    <p>Projeto de Programação Orientada a Objetos I</p>
+</footer>
+</body>
+</html>
