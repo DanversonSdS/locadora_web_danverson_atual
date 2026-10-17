@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmes cadastrados</title>
+</head>
+<body>
+<header class="cabecalho">
+    <p class="aluno">Aluno Danverson</p>
+    <h1>Locadora Danverson</h1>
+    <p>Filmes cadastrados</p>
+</header>
+<main class="conteudo">
+    <section class="painel-listagem">
+        <div class="cabecalho-pagina">
+            <h2>Lista de filmes</h2>
+            <a class="botao-principal" th:href="@{/filmes/novo}">Cadastrar novo filme</a>
+            <p class="mensagem-sucesso" th:if="${param.sucesso}"><!-- Lê o parâmetro sucesso presente na URL -->
+                Filme cadastrado com sucesso
+            </p>
+            <p class="lista-vazia" th:if="${filmes.isEmpty()}"><!-- Verifica se a lista está vazia-->
+                Nenhum filme cadastrado
+            </p>
+            <div class="tabela-container" th:if="${filmes.isEmpty()}">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nome</th>
+                        <th>Gênero</th>
+                        <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    < th:each="filme:${filmes}"><!-- repete a linha para cada filme da lista -->
+                    <td th:text="${filme.codigo}">1</td><!-- Acessa o getCogigo do objeto atual -->
+                    <td th:text="${filme.nome}">Matrix</td><!-- Acessa o getNome do objeto atual -->
+                    <td th:text="${filme.genero}">Ficção</td><!-- Acessa o getGenero do objeto atual -->
+                    <td>
+                        <span th:if="${filme.alugado}" class="status-alugado">Alugado</span>
+                        <!-- Mostra alugado quando isAlugado() retorna true -->
+                        <span th:unless="${filme.alugado}" class="status-disponivel">Disponível</span>
+                        <!-- Mostra disponível quando isAlugado() retorna false -->
+                    </td>
+                    </tbody>
+                </table>
+            </div>
+            <div class="acoes">
+                <a class="botao-secundario" th:href="@{/}">Voltar ao menu</a>
+            </div>
+    </section>
+</main>
+<footer class="rodape">
+    <p>Projeto de Programação Orientada a objetos I</p>
+</footer>
+</body>
+</html>
